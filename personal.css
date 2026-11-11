@@ -832,7 +832,7 @@ body {
 }
 
 #hasil.gagal {
-    color: #dc3545;
+    color: #4635dc;
 }
 
 .kontak {
@@ -841,6 +841,11 @@ body {
 
 .hobi {
     text-decoration: none;
+}
+
+.top {
+    text-decoration: none;
+    color: #ffff;
 }
 
 footer {
