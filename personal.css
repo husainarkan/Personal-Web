@@ -581,6 +581,118 @@ body {
     letter-spacing: 2px;
 }
 
+/* BLOG SECTION */
+.blog-section {
+    max-width: 1240px;
+    margin: auto;
+    padding: 0 20px 100px;
+}
+
+/* HEADING */
+.section-heading {
+    position: relative;
+    text-align: center;
+    padding-top: 5px;
+    margin-bottom: 125px;
+}
+
+.section-heading h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 56px;
+    font-weight: 800;
+}
+
+.heading-bg {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 100px;
+    font-weight: 800;
+    color: #151515;
+    z-index: 1;
+}
+
+.section-heading p {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 35px auto 0;
+    color: #999;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* BLOG CONTAINER */
+.blog-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+}
+
+/* BLOG CARD */
+.blog-card {
+    width: 100%;
+}
+
+/* BLOG IMAGE */
+.blog-image {
+    width: 100%;
+    height: 390px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.05);
+}
+
+/* BLOG INFORMATION */
+.blog-info {
+    padding-top: 20px;
+}
+
+.blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+    color: #ff3939;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.blog-info h2 {
+    color: #fff;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.blog-info h2:hover {
+    color: #ff3939;
+}
+
+.blog-info p {
+    color: #999;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.karya {
+    text-decoration: none;
+}
+
 /* CONTACT SECTION */
 .contact-section {
     width: 100%;
@@ -820,6 +932,31 @@ body {
     transform: translateY(-2px);
 }
 
+.top {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.btn-top {
+    width: 236px;
+    max-width: 100%;
+    min-height: 58px;
+    border: none;
+    border-radius: 50px;
+    background-color: #ff3939;
+    color: #000;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-top:hover {
+    background-color: #e52222;
+    transform: translateY(-2px);
+}
+
 /* Pesan hasil */
 #hasil {
     margin-top: 18px;
@@ -841,11 +978,6 @@ body {
 
 .hobi {
     text-decoration: none;
-}
-
-.top {
-    text-decoration: none;
-    color: #ffff;
 }
 
 footer {
