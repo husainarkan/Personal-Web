@@ -984,224 +984,171 @@ footer {
     text-align: center;
 }
 
-/* Tablet dan laptop kecil */
-@media screen and (max-width: 1024px) {
+/* ===== ANIMASI ===== */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
 
-    .navbar {
-        padding: 24px 30px;
-        flex-wrap: wrap;
-        gap: 25px;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
+/* ---- Tablet landscape / laptop kecil ---- */
+@media (max-width: 1100px) {
     .nav-menu {
-        gap: 20px;
-        flex-wrap: wrap;
+        gap: 24px;
     }
 
-    .nav-menu a {
-        font-size: 15px;
-    }
-
-    .hero {
-        min-height: 650px;
-        padding: 0 30px;
-    }
-
-    .hero-content {
-        width: 55%;
-    }
-
-    .hero-image {
-        width: 48%;
-        height: 400px;
-    }
-
-    .about-section {
-        gap: 30px;
-        padding: 0 30px;
-    }
-
-    .heading h1 {
-        font-size: 44px;
-    }
-
-    .heading-bg {
-        font-size: 65px;
-    }
-
-    .section-heading h1 {
-        font-size: 46px;
-    }
-
-    .section-heading .heading-bg {
-        font-size: 75px;
-    }
-
-    .resume-section,
-    .services-section,
-    .projects-section {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-
-    .resume-card {
-        padding: 28px 24px;
-    }
-
-    .resume-card h3 {
-        font-size: 24px;
-    }
-
-    .services-grid {
-        gap: 25px;
-    }
-
-    .projects-grid {
-        gap: 20px;
-    }
-
-    .contact-container {
-        width: 90%;
-    }
-
-    .form-container {
-        padding: 35px;
-    }
-
-    .profile-image {
-        min-height: 500px;
+    .contact-section {
+        padding-top: 100px;
     }
 }
 
+/* ---- Tablet ---- */
+@media (max-width: 960px) {
 
-/* ==============================
-   TABLET
-   ============================== */
-@media screen and (max-width: 768px) {
-
-    /* Navbar */
+    /* Navbar jadi hamburger */
     .navbar {
-        flex-direction: column;
-        justify-content: center;
-        padding: 25px 20px;
-        gap: 25px;
+        padding: 20px;
     }
 
     .logo {
-        font-size: 25px;
+        font-size: 24px;
+    }
+
+    .nav-toggle {
+        display: flex;
     }
 
     .nav-menu {
-        justify-content: center;
-        gap: 16px 22px;
-        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 20px;
+        right: 20px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #111;
+        border: 1px solid #222;
+        border-radius: 10px;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.35s ease, opacity 0.25s ease, visibility 0.25s;
+    }
+
+    .nav-menu.open {
+        max-height: 480px;
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-menu a {
-        font-size: 14px;
+        padding: 16px 20px;
+        border-bottom: 1px solid #1c1c1c;
+    }
+
+    .nav-menu a:last-child {
+        border-bottom: none;
     }
 
     /* Hero */
     .hero {
         min-height: auto;
-        padding: 70px 25px 30px;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 35px;
+        align-items: stretch;
+        padding: 20px 20px 0;
+        text-align: center;
     }
 
     .hero-content {
         width: 100%;
-        padding-bottom: 0;
+        padding-bottom: 20px;
     }
 
     .hero h1 {
-        font-size: clamp(38px, 7vw, 55px);
         letter-spacing: -1px;
     }
 
+    .hero-buttons {
+        justify-content: center;
+    }
+
     .hero-image {
-        position: relative;
+        position: static;
+        transform: none;
         width: 100%;
-        height: 350px;
-        right: auto;
-        bottom: auto;
-        align-self: center;
+        height: 380px;
     }
 
     /* About */
     .about-section {
         grid-template-columns: 1fr;
         min-height: auto;
-        gap: 35px;
-        margin-top: 70px;
-        padding: 0 25px 50px;
+        gap: 30px;
+        margin-top: 40px;
+        padding: 20px 20px 40px;
     }
 
     .about-image {
-        height: 350px;
+        height: 380px;
     }
 
-    .about-content {
-        width: 100%;
-    }
-
-    .heading h1 {
-        font-size: 42px;
-    }
-
-    .heading-bg {
-        top: 22px;
-        left: 0;
-        font-size: 60px;
+    .heading {
+        margin-bottom: 28px;
     }
 
     .profile-details {
-        gap: 18px;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
-    .detail-row {
-        grid-template-columns: 125px minmax(0, 1fr);
-        font-size: 15px;
+    /* Blog 2 kolom */
+    .blog-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Heading setiap bagian */
-    .section-heading {
-        padding: 0 10px;
-        margin-top: 35px;
-        margin-bottom: 50px;
+    .blog-image {
+        height: 320px;
     }
 
-    .section-heading h1 {
-        font-size: 40px;
+    /* Kontak 2 kolom */
+    .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 50px 25px;
     }
 
-    .section-heading .heading-bg {
-        top: 20px;
-        font-size: clamp(45px, 10vw, 65px);
-        letter-spacing: -2px;
+    .contact-section {
+        padding: 70px 20px 60px;
     }
 
-    .section-heading p,
-    .description {
-        font-size: 15px;
+    .contact-container {
+        grid-template-columns: 1fr;
+        width: calc(100% - 40px);
+        margin-top: 40px;
     }
 
-    /* Pendidikan */
-    .resume-section,
-    .services-section,
-    .projects-section {
-        padding: 0 25px 55px;
+    .profile-image {
+        min-height: 360px;
     }
+
+    .profile-image img {
+        max-height: 420px;
+    }
+}
+
+/* ---- Tablet portrait ---- */
+@media (max-width: 768px) {
 
     .resume-grid {
         grid-template-columns: 1fr;
         gap: 22px;
     }
 
-    .resume-card {
-        padding: 28px;
+    .sekolah {
+        padding: 30px 24px;
     }
 
     .resume-card .year {
@@ -1209,332 +1156,168 @@ footer {
     }
 
     .resume-card h3 {
-        font-size: 23px;
-    }
-
-    .resume-card p {
-        font-size: 15px;
-    }
-
-    /* Hobi dan prestasi */
-    .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
-    }
-
-    .service-card {
-        min-height: 210px;
-        padding: 30px 12px;
-    }
-
-    /* Pengalaman */
-    .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 15px;
-    }
-
-    .project-item {
-        min-width: 0;
-    }
-
-    .project-item img {
-        width: 100%;
-        height: 230px;
-        object-fit: cover;
-    }
-
-    /* Kontak */
-    .contact-section {
-        padding: 0 25px;
-    }
-
-    .contact-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 35px 20px;
-    }
-
-    .contact-item img {
-        max-width: 100%;
-        height: auto;
-        max-height: 100px;
-        object-fit: contain;
-    }
-
-    .contact-item h2 {
-        font-size: 14px;
-    }
-
-    .contact-item p {
-        font-size: 14px;
-        overflow-wrap: anywhere;
-    }
-
-    /* Form kontak */
-    .contact-container {
-        width: calc(100% - 40px);
-        margin: 60px auto 40px;
-        grid-template-columns: 1fr;
-    }
-
-    .profile-image {
-        min-height: 0;
-        height: 350px;
-    }
-
-    .profile-image img {
-        max-height: 350px;
-        object-fit: contain;
-    }
-
-    .form-container {
-        padding: 30px;
-    }
-
-    .form-group input {
-        height: 54px;
-    }
-
-    .form-group textarea {
-        height: 160px;
-    }
-}
-
-
-/* ==============================
-   HP
-   ============================== */
-@media screen and (max-width: 480px) {
-
-    body {
-        font-size: 14px;
-    }
-
-    /* Navbar */
-    .navbar {
-        padding: 22px 15px;
-        gap: 20px;
-    }
-
-    .nav-menu {
-        gap: 14px 17px;
-    }
-
-    .nav-menu a {
-        font-size: 12px;
-    }
-
-    .nav-menu a.active::after {
-        bottom: -6px;
-    }
-
-    /* Hero */
-    .hero {
-        padding: 45px 20px 20px;
-        gap: 25px;
-    }
-
-    .greeting {
-        font-size: 13px;
-        letter-spacing: 3px;
-        margin-bottom: 18px;
-    }
-
-    .hero h1 {
-        font-size: clamp(32px, 9vw, 42px);
-        line-height: 1.2;
-        margin-bottom: 25px;
-    }
-
-    .hero-buttons {
-        gap: 10px;
-    }
-
-    .btn {
-        min-height: 48px;
-        padding: 0 18px;
-        font-size: 11px;
-        letter-spacing: 1px;
-    }
-
-    .hero-image {
-        height: 280px;
-    }
-
-    /* About */
-    .about-section {
-        padding: 0 20px 40px;
-        margin-top: 45px;
-        gap: 25px;
-    }
-
-    .about-image {
-        height: 280px;
-    }
-
-    .heading {
-        margin-bottom: 30px;
-    }
-
-    .heading h1 {
-        font-size: 34px;
-    }
-
-    .heading-bg {
-        top: 18px;
-        font-size: 48px;
-        letter-spacing: -2px;
-    }
-
-    .detail-row {
-        grid-template-columns: 1fr;
-        gap: 4px;
-        font-size: 14px;
-    }
-
-    /* Judul bagian */
-    .section-heading {
-        margin-bottom: 40px;
-        padding: 0 5px;
-    }
-
-    .section-heading h1 {
-        font-size: 32px;
-    }
-
-    .section-heading .heading-bg {
-        top: 16px;
-        font-size: clamp(35px, 11vw, 48px);
-        letter-spacing: -2px;
-    }
-
-    /* Pendidikan */
-    .resume-section,
-    .services-section,
-    .projects-section {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .resume-grid {
-        gap: 18px;
-    }
-
-    .resume-card {
-        padding: 24px 20px;
-    }
-
-    .resume-card .year {
-        font-size: 23px;
-    }
-
-    .resume-card h3 {
-        font-size: 20px;
-        margin-bottom: 15px;
+        font-size: 24px;
+        margin-bottom: 16px;
     }
 
     .resume-card h4 {
-        font-size: 11px;
-        letter-spacing: 2px;
         margin-bottom: 22px;
     }
 
     .resume-card p {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1.8;
     }
 
-    /* Hobi dan prestasi */
+    .resume-section {
+        padding-bottom: 50px;
+    }
+
     .services-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 24px 18px;
     }
 
-    .service-card {
-        min-height: 180px;
-        padding: 28px 15px;
-    }
-
-    .service-card h2 {
-        font-size: 13px;
-        letter-spacing: 2px;
-    }
-
-    /* Pengalaman */
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 260px;
         gap: 18px;
     }
 
-    .project-item img {
-        height: 230px;
-    }
-
-    /* Kontak */
-    .contact-section {
-        padding: 0 20px;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .contact-item img {
-        max-height: 90px;
-    }
-
-    .contact-item h2 {
-        font-size: 13px;
-    }
-
-    /* Form */
-    .contact-container {
-        width: calc(100% - 30px);
-        margin: 45px auto 30px;
-    }
-
-    .profile-image {
-        height: 270px;
-    }
-
-    .profile-image img {
-        max-height: 270px;
+    .blog-section {
+        padding-bottom: 60px;
     }
 
     .form-container {
-        padding: 22px 18px;
+        padding: 36px 28px;
+    }
+}
+
+/* ---- HP ---- */
+@media (max-width: 600px) {
+
+    .logo {
+        font-size: 20px;
     }
 
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        padding: 14px 12px;
+    .greeting {
         font-size: 14px;
+        margin-bottom: 18px;
     }
 
-    .form-group input {
-        height: 50px;
+    .hero h1 {
+        font-size: clamp(32px, 10vw, 44px);
+        margin-bottom: 24px;
     }
 
-    .form-group textarea {
-        height: 140px;
-    }
-
-    .btn-submit {
+    .btn {
         width: 100%;
         min-height: 52px;
+    }
+
+    .hero-image,
+    .about-image {
+        height: 300px;
+    }
+
+    .detail-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+        font-size: 16px;
+    }
+
+    /* Hobi 1 kolom */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card,
+    .hobi {
+        min-height: 200px;
+    }
+
+    /* Pengalaman 1 kolom */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 240px;
+    }
+
+    .project-item.small,
+    .project-item.large {
+        grid-column: span 1;
+    }
+
+    /* Karya 1 kolom */
+    .blog-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .blog-image {
+        height: 300px;
+    }
+
+    .blog-info h2 {
+        font-size: 19px;
+    }
+
+    .blog-info p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    /* Form */
+    .form-container {
+        padding: 28px 18px;
+    }
+
+    .btn-submit,
+    .btn-top {
+        width: 100%;
+    }
+}
+
+/* ---- HP kecil ---- */
+@media (max-width: 480px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-item h2 {
+        margin: 20px 0 10px;
+        font-size: 17px;
+    }
+
+    .contact-item p {
+        font-size: 16px;
+    }
+}
+
+/* ---- Layar sentuh: tidak ada hover, overlay selalu terlihat ---- */
+@media (hover: none) {
+
+    .project-overlay {
+        opacity: 1;
+        justify-content: flex-end;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(255, 57, 57, 0.92) 0%, rgba(255, 57, 57, 0) 70%);
+        color: #000;
+    }
+
+    .project-overlay h2 {
+        font-size: 20px;
+        margin-bottom: 4px;
+    }
+
+    .project-overlay p {
         font-size: 12px;
     }
 
-    #hasil {
-        overflow-wrap: anywhere;
-    }
-
-    footer {
-        padding: 20px 15px;
-        font-size: 12px;
+    .resume-card:hover,
+    .service-card:hover,
+    .btn:hover,
+    .btn-submit:hover,
+    .btn-top:hover {
+        transform: none;
     }
 }
